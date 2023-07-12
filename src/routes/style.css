@@ -1,0 +1,62 @@
+:root {
+  --light-1: #f9f9f9;
+  --light-2: #f5f5f5;
+  --light-3: #eee;
+  --border-clr: #ccc;
+  --dark-1: #202225;
+  --dark-2: #292b2f;
+  --dark-3: #36393f;
+  --dark-text: #222;
+  --box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  --view-opacity: 35%;
+  --link-color: #757bc7;
+
+  --bandori: #e5004f;
+  --poppin-party: 255, 51, 119;
+  --afterglow: #e34;
+  --pastel-palettes: #3da;
+  --roselia: 51, 68, 170;
+  --hello-happy-world: #fd0;
+  --morfonica: 51, 170, 255;
+  --raise-a-suilen: #39c9c5;
+  --love-live: #f0047f;
+  --otonokizaka: #e4007f;
+  --uranohoshi: #1999d6;
+  --guilty-kiss: 238, 0, 102;
+  --nijigasaki: #f39800;
+  --azuna: 255, 0, 63;
+  --yuigaoka: #8b4993;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  font-size: 1.25rem;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--light-3);
+}
+
+main {
+  max-width: 1024px;
+  width: 100%;
+  padding: 1rem;
+}
