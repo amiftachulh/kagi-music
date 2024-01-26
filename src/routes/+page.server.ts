@@ -13,7 +13,7 @@ export const load = (({ url, cookies }) => {
   }
 
   if (currentPage === 0) {
-    throw error(404, { message: 'Page not found' });
+    error(404, { message: 'Page not found' });
   }
 
   const startIndex = (currentPage - 1) * 10;
@@ -50,24 +50,24 @@ export const actions: Actions = {
     const regex = /^\/.*/;
 
     if (!regex.test(redirectTo)) {
-      throw redirect(303, '/');
+      redirect(303, '/');
     }
 
     if (!lang) {
       lang = 'jp';
       cookies.set('lang', lang, { path: '/' });
     } else {
-      cookies.delete('lang');
+      /* @migration task: add path argument */ cookies.delete('lang');
     }
 
-    throw redirect(303, redirectTo ?? '/');
+    redirect(303, redirectTo ?? '/');
   },
   search: async ({ request }) => {
     const formData = await request.formData();
     const query = String(formData.get('search'));
     if (query === '') {
-      throw redirect(303, '/');
+      redirect(303, '/');
     }
-    throw redirect(303, `/?search=${query}`);
+    redirect(303, `/?search=${query}`);
   }
 };
