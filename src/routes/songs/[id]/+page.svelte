@@ -5,7 +5,10 @@
 </script>
 
 <svelte:head>
-  <meta name="description" content="Guitar tab for {data.title} by {data.artist}.">
+  <meta
+    name="description"
+    content="Guitar tab for {data.title} by {data.artist}."
+  />
   <title>{data.title} | {data.artist}</title>
 </svelte:head>
 
@@ -25,10 +28,16 @@
         <div class="arranger">編曲: {data.arranger}</div>
       {/if}
     </div>
-    <a href={data.download_url} target="_blank" rel="noopener noreferrer">
+    <a
+      class="download-btn"
+      href={data.download_url}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       Download
     </a>
   </div>
+  <h2 class="helper">How to open the file? <a href="/faq">Read here...</a></h2>
 </main>
 
 <style>
@@ -53,17 +62,22 @@
 
   h2,
   .songwriter > div {
-    line-height: 1.25rem;
+    line-height: 1.25;
   }
 
-  a {
+  .download-btn {
     background-color: #5b4beb;
     color: var(--light-2);
-    padding: .75rem 2rem;
+    padding: 0.75rem 2rem;
     border-radius: 3rem;
   }
 
-  a:hover {
+  .download-btn:hover {
     background-color: #6e60e7;
+  }
+
+  .helper {
+    margin-top: 1rem;
+    text-align: center;
   }
 </style>

@@ -30,13 +30,23 @@
     </li>
     <li>
       <button class="settings-btn" on:click={toggleSettings}>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M2.132 13.63a9.942 9.942 0 0 1 .001-3.26c1.101.026 2.092-.502 2.477-1.431c.385-.93.058-2.003-.74-2.763a9.942 9.942 0 0 1 2.306-2.307c.76.798 1.834 1.125 2.763.74c.93-.385 1.458-1.376 1.431-2.477a9.942 9.942 0 0 1 3.261 0c-.027 1.102.502 2.092 1.431 2.477c.93.385 2.003.058 2.763-.74a9.939 9.939 0 0 1 2.307 2.306c-.798.76-1.125 1.834-.74 2.764c.385.93 1.375 1.458 2.477 1.43a9.945 9.945 0 0 1 0 3.262c-1.102-.027-2.092.501-2.477 1.43c-.385.93-.058 2.004.74 2.764a9.939 9.939 0 0 1-2.306 2.306c-.76-.798-1.834-1.125-2.764-.74c-.93.385-1.458 1.376-1.43 2.478a9.94 9.94 0 0 1-3.262-.001c.027-1.101-.502-2.092-1.43-2.477c-.93-.385-2.004-.058-2.764.74a9.943 9.943 0 0 1-2.306-2.306c.798-.76 1.125-1.834.74-2.763c-.385-.93-1.376-1.458-2.478-1.431ZM12.001 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6Z"/></svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          ><path
+            fill="currentColor"
+            d="M2.132 13.63a9.942 9.942 0 0 1 .001-3.26c1.101.026 2.092-.502 2.477-1.431c.385-.93.058-2.003-.74-2.763a9.942 9.942 0 0 1 2.306-2.307c.76.798 1.834 1.125 2.763.74c.93-.385 1.458-1.376 1.431-2.477a9.942 9.942 0 0 1 3.261 0c-.027 1.102.502 2.092 1.431 2.477c.93.385 2.003.058 2.763-.74a9.939 9.939 0 0 1 2.307 2.306c-.798.76-1.125 1.834-.74 2.764c.385.93 1.375 1.458 2.477 1.43a9.945 9.945 0 0 1 0 3.262c-1.102-.027-2.092.501-2.477 1.43c-.385.93-.058 2.004.74 2.764a9.939 9.939 0 0 1-2.306 2.306c-.76-.798-1.834-1.125-2.764-.74c-.93.385-1.458 1.376-1.43 2.478a9.94 9.94 0 0 1-3.262-.001c.027-1.101-.502-2.092-1.43-2.477c-.93-.385-2.004-.058-2.764.74a9.943 9.943 0 0 1-2.306-2.306c.798-.76 1.125-1.834.74-2.763c-.385-.93-1.376-1.458-2.478-1.431ZM12.001 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6Z"
+          /></svg
+        >
       </button>
       {#if showSettings}
         <ul class="settings-menu">
           Show song in Japanese
           <form
-            action="/?/changeLang&redirectTo={$page.url.pathname + $page.url.search}"
+            action="/?/changeLang&redirectTo={$page.url.pathname +
+              $page.url.search}"
             method="post"
             use:enhance
           >
@@ -54,7 +64,10 @@
 </div>
 <footer>
   <section class="info">
-    <div>The image assets that displayed on this platform are the property of their respective owners.</div>
+    <div>
+      The image assets that displayed on this platform are the property of their
+      respective owners.
+    </div>
     <div>I do not own any of it.</div>
   </section>
   <br />
@@ -119,7 +132,7 @@
   }
 
   .lang-toggle-btn {
-    padding: 0 .5rem;
+    padding: 0 0.5rem;
     cursor: pointer;
   }
 
@@ -129,8 +142,10 @@
   }
 
   footer {
-    font-size: 0.875rem;
+    background-color: var(--dark-2);
+    color: var(--light-2);
     padding: 1rem;
+    font-size: 0.875rem;
     text-align: center;
     border-top: 1px solid var(--border-clr);
   }

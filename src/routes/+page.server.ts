@@ -6,13 +6,9 @@ import type { PageServerLoad } from './$types';
 export const load = (({ url, cookies }) => {
   const lang = cookies.get('lang');
   const query = url.searchParams.get('search');
-  let currentPage = parseInt(url.searchParams.get('page')!);
+  let currentPage = Number(url.searchParams.get('page')) || 1;
 
-  if (isNaN(currentPage)) {
-    currentPage = 1;
-  }
-
-  if (currentPage === 0) {
+  if (currentPage < 1) {
     error(404, { message: 'Page not found' });
   }
 
@@ -26,8 +22,6 @@ export const load = (({ url, cookies }) => {
 
     return {
       songs: filteredSongs.slice(startIndex, endIndex),
-      previousPage: currentPage - 1,
-      nextPage: currentPage + 1,
       totalPage: Math.ceil(filteredSongs.length / 10)
     };
   }
@@ -36,8 +30,6 @@ export const load = (({ url, cookies }) => {
     songs: (lang === 'jp') ?
       songsJp.slice(startIndex, endIndex) :
       songs.slice(startIndex, endIndex),
-    previousPage: currentPage - 1,
-    nextPage: currentPage + 1,
     totalPage: Math.ceil(songs.length / 10)
   };
 }) satisfies PageServerLoad;
@@ -57,7 +49,7 @@ export const actions: Actions = {
       lang = 'jp';
       cookies.set('lang', lang, { path: '/' });
     } else {
-      /* @migration task: add path argument */ cookies.delete('lang');
+      cookies.delete('lang', { path: '/' });
     }
 
     redirect(303, redirectTo ?? '/');
