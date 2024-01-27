@@ -16,7 +16,7 @@
 
 <div class="pagination">
   {#if currentPage > 1}
-    <a href={createPageURL(currentPage - 1)} class="pagination-number">
+    <a href={createPageURL(currentPage - 1)} class="pagination-arrow">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="1.5rem"
@@ -45,7 +45,7 @@
   {/each}
 
   {#if currentPage < totalPage}
-    <a href={createPageURL(currentPage + 1)} class="pagination-number">
+    <a href={createPageURL(currentPage + 1)} class="pagination-arrow">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="1.5rem"
@@ -73,5 +73,11 @@
     align-items: center;
     gap: 0.5rem;
     margin-top: 1rem;
+  }
+
+  .pagination-arrow {
+    display: grid;
+    place-items: center;
+    color: var(--dark-2);
   }
 </style>
